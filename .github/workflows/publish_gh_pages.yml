@@ -1,0 +1,16 @@
+name: publish_gh_pages
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build
+    - run: yarn build
+    - name: Push
+    - run: git push && git subtree push --prefix dist origin gh-pages
